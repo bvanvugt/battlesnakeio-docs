@@ -1,7 +1,7 @@
 openapi: "3.0.1"
 info:
   title: "Battlesnake Snake API"
-  version: "0.0.1"
+  version: "2018.03.beta"
   description: "Battlesnake participants implement this webhook API to power their snake. See battlesnake.io for details."
 paths:
   /start:
@@ -103,12 +103,17 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/Snake"
+    Game:
+      type: object
+      properties:
+        id:
+          type: string
+          example: "game-id-string"
     SnakeRequest:
       type: object
       properties:
         game:
-          type: string
-          example: "game-id-string"
+          $ref: "#/components/schemas/Game"
         turn:
           type: integer
           minimum: 0
